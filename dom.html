@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function countTag(n){
+            var numtags = 0;
+            if (n.nodeType == 1){  // 判断n是否是一个element对象
+                numtags++;
+            }
+            var children = n.childNodes;
+            for(var i = 0;i<children.length;i++){
+                numtags+=countTag(children[i]);
+            }
+            return numtags;
+        }
+
+    </script>
+</head>
+<body onload="alert('this document has'+countTag(document)+'tags')">
+this is a <i>sample</i> document.
+</body>
+</html>

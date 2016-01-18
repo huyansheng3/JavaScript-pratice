@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function display_time_in_status_line(){
+            var d = new Date();
+            var h = d.getHours();
+            var m = d. getMinutes();
+            var ampm = (h>=12) ? "pm":"am";
+            if (h==0) h=12;
+            if (m<10) m = "0"+m;
+            var t = h + ":"+m+" "+ampm;
+            defaultStatus = t;      //在状态栏中显示它
+
+            //安排一分钟后再重复该操作
+            setTimeout("display_time_in_status_line()",60000);
+        }
+    </script>
+</head>
+<body onload="display_time_in_status_line();">
+
+</body>
+</html>
+<script>
+
+    var browser = "Brower Infomation : \n";
+    for(var proname in navigator){
+        browser+=proname+" : "+navigator[proname]+"\n";
+    }
+    alert(browser);
+
+    var plugin_info = "";
+    for (var plugin in navigator.plugins){
+        plugin_info+=plugin+":"+navigator.plugins[plugin]+"\n";
+    }
+    alert(plugin_info);
+</script>

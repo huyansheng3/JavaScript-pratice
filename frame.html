@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function setColor(w){
+            var r = Math.floor((Math.random()*256)).toString(16);
+            var g = Math.floor((Math.random()*256)).toString(16);
+            var b = Math.floor((Math.random()*256)).toString(16);
+            var colorString = "#"+r+g+b;
+            w.document.write("<body bgcolor='"+colorString+"'></body>");
+            w.document.close();
+            w.setTimeout('parent.setColor(parent.'+ w.name+')',1000);
+            setTimeout("setColor("+ w.name+")");
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

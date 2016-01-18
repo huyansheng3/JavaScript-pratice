@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reverse_all</title>
+    <script>
+        function reverse_all(n){
+            if (n.nodeType == 3){   //TEXT 节点
+                var text = n.data;
+                var reversed = "";
+                for (var i = text.length-1;i>=0;i--){
+                    reversed+=text.charAt(i);
+                }
+                n.data=reversed;
+            }else {
+                var kids = n.childNodes;
+                var numkids = kids.length;
+                for(var i = numkids-1;i>=0;i--){
+                    reverse_all(kids[i]);
+                    n.appendChild(n.removeChild(kids[i]));
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<p>paragraph #1</p>
+<p>paragraph #2</p>
+<p>paragraph #3</p>
+<text>
+
+    你是我的小雅削苹果，打火机卡死打火机卡死
+    dahsjkdhkjas 大世界肯定哈桑
+</text>
+<br>
+<br>
+<br>
+<button onclick="reverse_all(document.body)">Click me to reverse</button>
+</body>
+</html>
