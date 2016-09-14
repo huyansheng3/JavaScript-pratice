@@ -26,13 +26,15 @@ parseInt()
 
 
 //JavaScript中字符串无法改变，字符串的传递和拷贝使用的是引用，而比较是通过值比较
+console.log("-----------------------");
 
-text = " my email address: huyansheng3@qq.com   your address is  xidian@gmail.edu"
-mail_pattern = /(\w+)@(\w+)\.(com|cn|org|edu)/g;
+var text = " my email address: huyansheng3@qq.com   your address is "
+var mail_pattern = /(\w+)@(\w+)\.(com|cn|org|edu)/g;
 result = "";
-result = text.match(mail_pattern);
+//result = text.match(mail_pattern);
+result = mail_pattern.exec(text)
 if (result != null){
-    console.log(result);
+    console.log(result.toString());
 }
 
 
